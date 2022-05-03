@@ -1,0 +1,51 @@
+@import '../../../variables.scss';
+
+.search {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.search-block {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  background-color: $background-color-secondary;
+  border-top-right-radius: $border-radius-primary;
+  transition: border-top-right-radius 0.5s;
+
+  &__label i {
+    width: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 32px;
+    color: $text-color-secondary;
+    cursor: pointer;
+  }
+
+  &__input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+  }
+
+  &__action-link {
+    flex-basis: 170px;
+    font-weight: 700;
+    background-color: $background-color-blue;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 70px;
+    color: $text-color-white;
+    padding-left: 20px;
+    border-top-right-radius: $border-radius-primary;
+    transition: border-top-right-radius 0.5s;
+
+    &:hover {
+      border-top-right-radius: $border-radius-secondary;
+
+      .search-block {
+        border-top-right-radius: $border-radius-secondary;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import '../../../variables.scss';
+
+.table {
+  border-collapse: collapse;
+  background-color: $background-color-secondary;
+
+  &__head-coloumn {
+    font-size: 15px;
+    color: $text-color-secondary;
+    line-height: 30px;
+    text-align: left;
+    padding: 30px 0 0;
+
+    &:first-child {
+      text-align: center;
+    }
+  }
+
+  &__body-row {
+    &:nth-child(odd) {
+      background-color: $background-color-primary;
+    }
+  }
+
+  &__body-coloumn {
+    font-size: 18px;
+    line-height: 55px;
+    color: $text-color-primary;
+    padding: 0;
+
+    &:first-child {
+      text-align: center;
+    }
+  }
+
+  &__logo {
+    width: 50px;
+  }
+
+  &__logo-text {
+    margin-left: 5px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  &__img {
+    width: 50px;
+  }
+
+  &__text {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+}
+
+.terminal-identifier {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  font-weight: 700;
+  line-height: 35px;
+  color: $text-color-green;
+  border: 1px solid $border-color-green;
+  border-radius: 50%;
+}

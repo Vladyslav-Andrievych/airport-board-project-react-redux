@@ -1,0 +1,15 @@
+@import '../../../variables.scss';
+
+.header {
+  height: 70px;
+  width: 100%;
+  margin-top: 35px;
+
+  &__title {
+    font-size: 65px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $text-color-primary;
+    margin: 0;
+  }
+}
