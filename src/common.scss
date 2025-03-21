@@ -1,8 +1,8 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 #root {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   background-color: $background-color-primary;
 }
