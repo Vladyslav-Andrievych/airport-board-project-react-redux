@@ -1,53 +1,40 @@
 import React from 'react';
-import { timeFormatter } from '../../dateTimeUtils/timeUtils.js';
-
-// add new status names
-const flightStatuses = {
-  DP: 'Departed',
-  LN: 'Landed',
-  CX: 'Cancel',
-};
+import { timeFormatter } from '../../utils/index.js';
 
 export const generateTableRowInfo = (flightData, tableName) => {
   const terminal = (
-    <span className="terminal-identifier">{flightData.term}</span>
+    <span className="terminal-identifier">{flightData.terminal}</span>
   );
 
   const localTime =
     tableName === 'departures'
-      ? timeFormatter.format(new Date(flightData.timeDepShedule))
-      : timeFormatter.format(new Date(flightData.timeArrShedule));
+      ? timeFormatter.format(new Date(flightData.departureDateExpected))
+      : timeFormatter.format(new Date(flightData.arrivalDateExpected));
 
   const destination =
     tableName === 'departures'
-      ? flightData['airportToID.city_en']
-      : flightData['airportFromID.city_en'];
+      ? flightData.departureCity
+      : flightData.arrivalCity;
 
-  let status = flightStatuses[flightData.status];
-  if (status !== 'Cancel') {
-    status +=
-      ' ' +
-      timeFormatter.format(
-        new Date(
-          tableName === 'departures'
-            ? flightData.timeDepFact
-            : flightData.timeTakeofFact
-        )
-      );
+  let status = flightData.status;
+  if (tableName === 'departures') {
+    status += flightData.departureDate ? ` ${timeFormatter.format(new Date(flightData.departureDate))}` : '' 
+  } else {
+    status += flightData.arrivalDate ? ` ${timeFormatter.format(new Date(flightData.arrivalDate))}` : ''
   }
 
   const airline = (
     <div className="logo">
       <img
-        src={flightData.airline.en.logoSmallName}
+        src={flightData.airlineLogo}
         alt="logo"
         className="logo__img"
       />
-      <span className="logo__text">{flightData.airline.en.name}</span>
+      <span className="logo__text">{flightData.airlineName}</span>
     </div>
   );
 
-  const flight = flightData.fltNo;
+  const flight = flightData.codeShare;
 
   return {
     terminal,

@@ -8,15 +8,15 @@ const filterDepartures = (flightList, filterText) => {
   const copyFilterText = filterText.toLowerCase();
 
   const filteredFlightList = flightList.filter((flight) => {
-    if (flight['airportToID.city_en'].toLowerCase() === copyFilterText) {
+    if (typeof flight.departureCity === 'string' && flight.departureCity.toLowerCase() === copyFilterText) {
       return true;
     }
 
-    if (flight.airline.en.name.toLowerCase() === copyFilterText) {
+    if (typeof flight.airlineName === 'string' && flight.airlineName.toLowerCase() === copyFilterText) {
       return true;
     }
 
-    if (flight.fltNo.toLowerCase() === copyFilterText) {
+    if (typeof flight.codeShare === 'string' && flight.codeShare.toLowerCase() === copyFilterText) {
       return true;
     }
 
@@ -30,15 +30,15 @@ const filterArrivals = (flightList, filterText) => {
   const copyFilterText = filterText.toLowerCase();
 
   const filteredFlightList = flightList.filter((flight) => {
-    if (flight['airportFromID.city_en'].toLowerCase() === copyFilterText) {
+    if (typeof flight.arrivalCity === 'string' && flight.arrivalCity.toLowerCase() === copyFilterText) {
       return true;
     }
 
-    if (flight.airline.en.name.toLowerCase() === copyFilterText) {
+    if (typeof flight.airlineName === 'string' && flight.airlineName.toLowerCase() === copyFilterText) {
       return true;
     }
 
-    if (flight.fltNo.toLowerCase() === copyFilterText) {
+    if (typeof flight.codeShare === 'string' && flight.codeShare.toLowerCase() === copyFilterText) {
       return true;
     }
 

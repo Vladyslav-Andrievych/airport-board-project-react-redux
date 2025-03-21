@@ -8,7 +8,7 @@ export const arrivalsFlightListSelector = createSelector(
     if (flightList === null) {
       return null;
     }
-    return flightList.arrival;
+    return flightList.filter(flight => flight.type === 'ARRIVAL');
   }
 );
 
@@ -18,6 +18,6 @@ export const departuresFlightListSelector = createSelector(
     if (flightList === null) {
       return null;
     }
-    return flightList.departure;
+    return flightList.filter(flight => flight.type === 'DEPARTURE');
   }
 );

@@ -39,7 +39,7 @@ const Table = ({ flightList }) => {
       <tbody className="table__body">
         {filteredFlightList.map((flight) => (
           <TableRow
-            key={flight.ID}
+            key={flight.id}
             tableName={filterName}
             flightData={flight}
           />
